@@ -1,17 +1,20 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <meta charset="utf-8">
   <title></title>
 </head>
+
 <body>
   <h1>22.ch</h1>
-  <h2>コメント追加する</h2>
-  <!-- action属性, method属性を指定 -->
-  <form action="SeirekiWareki.php" method="get">
-    <input type="textarea" name="seireki"  value="1900">年</p>
-    <!-- name属性を指定 -->
-    <p><input type="submit" name="submitBtn" value="送信"></p>
+  <form action="Yearschanger.php" method="get">
+    <p>コメントを追加する</p>
+
+    <textarea name="kansou" rows="4" cols="40"></textarea><br>
+
+    <p><input type="submit" name="submitBtn" value="送信する"></p>
   </form>
 </body>
+
 </html>
