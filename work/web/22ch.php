@@ -24,7 +24,7 @@
 
     //jsonファイルを$postに入れPostクラスをインスタンス化。引数で中身を渡す。
     foreach($json as $post) {
-      $post = new Post($post['date'],$post['post']);
+       $post = new Post($post['date'],$post['post']);
 
       //Postクラスのget関数を使って表示
       echo "<div class ='card'>";
