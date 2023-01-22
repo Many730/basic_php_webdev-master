@@ -13,7 +13,6 @@
 <body>
   <?php
 $newpost = $_GET["newpost"];
-echo $newpost;
   require_once('Post.php');
 
   function readPostsFromJson()
@@ -28,10 +27,14 @@ echo $newpost;
 
     if(isset($_GET["newpost"])){
       $newdate = new DateTime('now');
-      $newdate = $newdate->format('Y-m-d ');
-      print_r($newdate);
+      $newdate = $newdate->format('Y-m-d H:i');
+      $array["date"] = $newdate;
+      $array["post"] = $newpost;
+      array_push($posts, $array);
+      $newposts = json_encode($posts, JSON_UNESCAPED_UNICODE);
+      file_put_contents("data.json", $newposts);
     }else{
-
+      
     }
 
     //jsonファイルを$postに入れPostクラスをインスタンス化。引数で中身を渡す。
