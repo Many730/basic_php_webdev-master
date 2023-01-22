@@ -28,7 +28,7 @@ echo $newpost;
 
     if(isset($_GET["newpost"])){
       $newdate = new DateTime('now');
-      // $newdate = $newdate->format('Y-m-d ');
+      $newdate = $newdate->format('Y-m-d ');
       print_r($newdate);
     }else{
 
