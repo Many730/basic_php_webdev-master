@@ -12,8 +12,9 @@
 
 <body>
   <?php
+$newpost = $_GET["newpost"];
+echo $newpost;
   require_once('Post.php');
-  $posts = readPostsFromJson();
 
   function readPostsFromJson()
   {
@@ -21,9 +22,21 @@
     $data_file_name = "data.json";
     $data = file_get_contents($data_file_name);
     $json = json_decode($data, true);
+    return $json;
+    }
+    $posts = readPostsFromJson();
+
+    if(isset($_GET["newpost"])){
+      $newdate = new DateTime('now');
+      // $newdate = $newdate->format('Y-m-d ');
+      print_r($newdate);
+    }else{
+
+    }
 
     //jsonファイルを$postに入れPostクラスをインスタンス化。引数で中身を渡す。
-    foreach($json as $post) {
+    
+    foreach($posts as $post) {
        $post = new Post($post['date'],$post['post']);
 
       //Postクラスのget関数を使って表示
@@ -32,7 +45,6 @@
       echo "<div class ='post'>" .  $post->getPost() . "</br></div>";
       echo "</div>";
     }
-  }
   // for ($i = 0; $i <= count($posts) - 1; $i++) {
   //   echo "<div class ='card'>";
   //   echo "<div class ='dttm'>" . $posts[$i]->dttm . "</br></div>";
